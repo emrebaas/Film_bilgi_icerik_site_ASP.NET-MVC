@@ -1,0 +1,85 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/css/ie6.css" rel="stylesheet" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.4.2.min.js"></script>
+    <script src="~/Content/js/jquery-func.js"></script>
+
+    <title>icerikgoster</title>
+</head>
+<body>
+
+    
+    <div id="shell">
+        <div id="header">
+            <h1 id="logo"><a href="/Home/Index">MovieHunter</a></h1>
+            <div class="social">
+                <span>Bizi Takip Edin:</span>
+                <ul>
+                    <li><a class="twitter" href="https://twitter.com/emrbs64">twitter</a></li>
+                    <li><a class="facebook" href="https://www.facebook.com/emrebaas">facebook</a></li>
+                    <li><a class="vimeo" href="https://www.facebook.com/emrebaas">vimeo</a></li>
+                    <li><a class="rss" href="https://twitter.com/emrbs64">rss</a></li>
+                </ul>
+            </div>
+            <div id="navigation">
+                <ul>
+                    <li><a class="active" href="/Home/Index">Ana Sayfa</a></li>
+                    <li><a href="/Home/Haber">Haberler</a></li>
+                    <li><a href="/Home/Gelecek">Yakındakiler</a></li>
+                    <li><a href="/Home/Hakkimizda">Hakkımızda</a></li>
+                    <li><a href="/Home/Giris">Giriş</a></li>
+
+                    
+
+                </ul>
+            </div>
+            <div id="sub-navigation">
+
+                <div id="search">
+                   
+                    @Html.Partial("FilmAraPartial")
+
+
+                </div>
+            </div>
+        </div>
+        <div id="main">
+            <div id="content">
+                <div class="box" style="margin-left:75px">
+                    <div class="head">
+                      
+                       
+                    </div>
+
+
+                   @RenderBody()
+                  
+
+                            
+            
+            </div>
+        
+            <div class="cl">&nbsp;</div>
+        </div>
+        <div id="footer">
+            <p class="lf">Copyright &copy; 2017 <a href="#">www.ayaklisinema.com</a> - Tüm Hakları Saklıdır</p>
+            <p class="rf">Design by <a href="www.facebook.com/emrebaas">EMRE BAŞ</a></p>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+    <!-- END PAGE SOURCE -->
+
+    </div>
+
+
+</body>
+</html>

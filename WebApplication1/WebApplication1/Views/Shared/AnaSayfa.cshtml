@@ -1,0 +1,228 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/css/ie6.css" rel="stylesheet" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.4.2.min.js"></script>
+    <script src="~/Content/js/jquery-func.js"></script>
+    
+      <title>AnaSayfa</title>
+</head>
+<body>
+   
+    @RenderBody()
+    <div id="shell">
+        <div id="header">
+            <h1 id="logo"><a href="#">MovieHunter</a></h1>
+            <div class="social">
+                <span>Bizi Takip Edin:</span>
+                <ul>
+                    <li><a class="twitter" href="https://twitter.com/emrbs64">twitter</a></li>
+                    <li><a class="facebook" href="https://www.facebook.com/emrebaas">facebook</a></li>
+                    <li><a class="vimeo" href="https://www.facebook.com/emrebaas">vimeo</a></li>
+                    <li><a class="rss" href="https://twitter.com/emrbs64">rss</a></li>
+                </ul>
+            </div>
+            <div id="navigation">
+                <ul>
+                    
+                        <li><a class="active" href="/Home/Index">Ana Sayfa</a></li>
+                        <li><a href="/Home/Haber">Haberler</a></li>
+                        <li><a href="/Home/Gelecek">Yakındakiler</a></li>
+                        <li><a href="/Home/Hakkimizda">Hakkımızda</a></li>
+                        <li><a href="/Home/Giris">Giriş</a></li>
+
+</ul>
+            </div>
+            <div id="sub-navigation">
+         
+                <div id="search">
+                    
+                @Html.Partial("FilmAraPartial")
+
+                </div>
+            </div>
+        </div>
+        <div id="main">
+            <div id="content">
+               
+                <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog">
+                        <div class="loginmodal-container">
+                            <h1>Login to Your Account</h1><br>
+                            <form>
+                                <input type="text" name="user" placeholder="Username">
+                                <input type="password" name="pass" placeholder="Password">
+                                <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+                            </form>
+
+                            <div class="login-help">
+                                <a href="#">Register</a> - <a href="#">Forgot Password</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 <div class="box">
+                    <div class="head">
+                        <h3>Aksiyon Kategorisi</h3>
+                        <p class="text-right"><a href="/Home/Aksiyon">Tümünü Gör</a></p>
+                    </div>
+               
+                    @Html.Action("BesAksiyon","Home")
+                    
+                    <div class="cl">&nbsp;</div>
+                </div>
+
+                <div class="box">
+                    <div class="head">
+                        <h3>Animasyon Kategorisi</h3>
+                        <p class="text-right"><a href="/Home/Animasyon">Tümünü Gör</a></p>
+                    </div>
+
+                    @Html.Action("BesAnimasyon", "Home")
+
+                    <div class="cl">&nbsp;</div>
+                </div>
+
+
+
+                <div class="box">
+                    <div class="head">
+                        <h3>Bilim Kurgu Kategorisi</h3>
+                        <p class="text-right"><a href="/Home/Bilimkurgu">Tümünü Gör</a></p>
+                    </div>
+
+                    @Html.Action("BesBilimkurgu", "Home")
+
+                    <div class="cl">&nbsp;</div>
+                </div>
+
+
+
+                <div class="box">
+                    <div class="head">
+                        <h3>Dram Kategorisi</h3>
+                        <p class="text-right"><a href="/Home/Dram">Tümünü Gör</a></p>
+                    </div>
+
+                    @Html.Action("BesDram", "Home")
+
+                    <div class="cl">&nbsp;</div>
+                </div>
+
+
+
+                <div class="box">
+                    <div class="head">
+                        <h3>Fantastik Kategorisi</h3>
+                        <p class="text-right"><a href="/Home/Fantastik">Tümünü Gör</a></p>
+                    </div>
+
+                    @Html.Action("BesFantastik", "Home")
+
+                    <div class="cl">&nbsp;</div>
+                </div>
+          
+
+                <div class="box">
+                    <div class="head">
+                        <h3>Komedi Kategorisi</h3>
+                        <p class="text-right"><a href="/Home/Komedi">Tümünü Gör</a></p>
+                    </div>
+
+                    @Html.Action("BesKomedi", "Home")
+
+                    <div class="cl">&nbsp;</div>
+                </div>
+
+
+                <div class="box">
+                    <div class="head">
+                        <h3>Korku Kategorisi</h3>
+                        <p class="text-right"><a href="/Home/Korku">Tümünü Gör</a></p>
+                    </div>
+
+                    @Html.Action("BesKorku", "Home")
+
+                    <div class="cl">&nbsp;</div>
+                </div>
+          
+            
+                <div class="box">
+                    <div class="head">
+                        <h3>Macera Kategorisi</h3>
+                        <p class="text-right"><a href="/Home/Macera">Tümünü Gör</a></p>
+                    </div>
+
+                    @Html.Action("BesMacera", "Home")
+
+                    <div class="cl">&nbsp;</div>
+                </div>
+
+                <div class="box">
+                    <div class="head">
+                        <h3>Romantik Kategorisi</h3>
+                        <p class="text-right"><a href="/Home/Romantik">Tümünü Gör</a></p>
+                    </div>
+
+                    @Html.Action("BesRomantik", "Home")
+
+                    <div class="cl">&nbsp;</div>
+                </div>
+
+                <div class="box">
+                    <div class="head">
+                        <h3>Savaş Kategorisi</h3>
+                        <p class="text-right"><a href="/Home/Savas">Tümünü Gör</a></p>
+                    </div>
+
+                    @Html.Action("BesSavas", "Home")
+
+                    <div class="cl">&nbsp;</div>
+                </div>
+            
+            
+            
+              </div>
+            <div id="news">
+                <div class="head">
+                    <h2><strong>Haberler</strong></h2>
+                    <p class="text-right"><a href="/Home/Haber">Tümünü Gör</a></p>
+                </div>
+                <div class="content">
+                    @Html.Action("SonİkiHaber", "Home")
+
+                </div>
+            </div>
+            <div id="coming">
+                <div class="head">
+                    <h2>Yakında Gelecek Olanlar</h2>
+                    <p class="text-right"><a href="/Home/Gelecek">Tümünü Gör</a></p>
+                </div>
+                <div class="content">
+                   @Html.Action("SonİkiGelecek", "Home")
+
+                </div>
+               
+            </div>
+            <div class="cl">&nbsp;</div>
+        </div>
+        <div id="footer">
+            <p class="lf">Copyright &copy; 2017 <a href="#">www.ayaklisinema.com</a> - Tüm Hakları Saklıdır</p>
+            <p class="rf">Design by <a href="www.facebook.com/emrebaas">EMRE BAŞ</a></p>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+   
+
+
+</body>
+</html>

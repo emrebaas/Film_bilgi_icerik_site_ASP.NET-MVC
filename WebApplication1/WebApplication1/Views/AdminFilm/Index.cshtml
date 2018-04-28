@@ -1,0 +1,82 @@
+﻿@model IEnumerable<WebApplication1.Models.Film>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+
+<p>
+    @Html.ActionLink("Yeni Film Ekle", "Create")
+</p>
+
+
+
+<table border="0" align="center">
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td rowspan="4" width="155" height="200">
+
+               <img width="155" height="200" src="~/Content/img/film/@item.film_resim" />
+            </td>
+            <td width="300" height="30" style="padding-left:20px;">
+                Film Adı  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;@Html.DisplayFor(modelItem => item.film_adi)
+            </td>
+        </tr>
+
+        <tr>
+            <td width="300" height="30" style="padding-left:20px;">
+                Yapım Tarihi :&nbsp;@Html.DisplayFor(modelItem => item.film_yil)
+            </td>
+        </tr>
+        <tr>
+
+            <td width="300" height="30" style="padding-left:20px;">
+                Imdb Puanı  &nbsp; :&nbsp;10/@Html.DisplayFor(modelItem => item.film_puan)
+            </td>
+
+        </tr>
+        <tr>
+
+            <td width="450" style="padding-left:20px;">
+
+                @if (item.film_konu.Length > 200)
+                {
+                    <p>@Html.Raw(item.film_konu.Substring(0, 200)) ...</p>
+                }
+
+                else
+                {
+                    <p>@Html.Raw(item.film_konu) ...</p>
+                }
+
+            </td>
+
+        </tr>
+
+        <tr>
+            <td></td>
+
+            <td style="float:right;">
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.film_id }) |
+                @Html.ActionLink("Detaylar", "Details", new { id = item.film_id }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.film_id })
+            </td>
+
+
+        </tr>
+
+        <tr>
+            <td colspan="2" height="40">
+                <hr style="margin-bottom:25px;" />
+            </td>
+        </tr>
+
+    }
+
+</table>
+
+

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<WebApplication1.Models.Haber>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+
+<p>
+    @Html.ActionLink("Yeni Haber ", "Create")
+</p>
+
+<table border="0" align="center">
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td rowspan="2" width="300" height="200">
+                <img width="300" height="200" src="~/Content/img/haber/@item.haber_resim" />
+            </td>
+            <td height="50" width="300" style="padding-left:30px;">
+                <h3 style="float:left;">@Html.DisplayFor(modelItem => item.haber_baslik)</h3>
+            </td>
+        </tr>
+
+        <tr>
+            <td width="450" style="padding-left:30px;">
+                @if (item.haber_aciklama.Length > 200)
+                {
+                    <p>@Html.Raw(item.haber_aciklama.Substring(0, 200)) ...</p>
+                }
+
+                else
+                {
+                    <p>@Html.Raw(item.haber_aciklama) [...]</p>
+                }
+            </td>
+
+
+        </tr>
+
+        <tr>
+            <td colspan="2" align="right">
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.haber_id }) |
+                @Html.ActionLink("Detaylar", "Details", new { id = item.haber_id }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.haber_id })
+            </td>
+            
+        </tr>
+
+        <tr>
+            <td colspan="2" height="40">
+                <hr style="margin-bottom:25px;" />
+            </td>
+        </tr>
+    }
+
+</table>
+
+        

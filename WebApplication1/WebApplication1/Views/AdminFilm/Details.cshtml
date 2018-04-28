@@ -1,0 +1,56 @@
+﻿@model WebApplication1.Models.Film
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<div>
+
+    <table border="0">
+        <tr>
+            <td rowspan="4" width="200" height="250">
+                <img width="200" height="250" src="~/Content/img/film/@Model.film_resim" />
+            </td>
+            <td width="500" height="30" style="padding-left:20px; padding-top:30px;">
+               Film Adı  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;@Html.DisplayFor(model => model.film_adi)
+               
+            </td>
+        </tr>
+
+        <tr>
+            <td width="500" height="30" style="padding-left:20px;">
+                Yapım Tarihi :&nbsp;@Html.DisplayFor(model => model.film_yil)
+               
+            </td>
+        </tr>
+        <tr>
+
+            <td width="300" height="30" style="padding-left:20px;">
+                Imdb Puanı  &nbsp; :&nbsp; @Html.DisplayFor(model => model.film_puan)
+                
+            </td>
+
+        </tr>
+        <tr>
+
+            <td width="600" style="padding-left:20px;">@Html.DisplayFor(model => model.film_konu)</td>
+
+        </tr>
+
+        <tr>
+            <td align="left" colspan="2" height="400">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/@Model.film_fragman" frameborder="0" allowfullscreen></iframe>
+            </td>
+
+        </tr>
+
+
+    </table>
+
+</div>
+
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.film_id }) |
+    @Html.ActionLink("Geri Dön", "Index")
+</p>

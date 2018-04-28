@@ -1,0 +1,48 @@
+﻿@model WebApplication1.Models.Haber
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+
+<div>
+
+
+    <table border="0" align="center">
+        <tr>
+            <td align="center" width="300" height="30">
+                <h3 style="color:brown;">
+                    @Html.DisplayFor(model => model.haber_baslik)
+                </h3>
+            </td>
+        </tr>
+
+        <tr>
+            <td align="center" width="400" height="250">
+                <img width="400" height="250" src="~/Content/img/haber/@Model.haber_resim" />
+            </td>
+        </tr>
+
+
+        <tr>
+            <td width="600" style="padding-top:50px;">
+                @Html.DisplayFor(model => model.haber_aciklama)
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" align="right" style="padding-top:40px;">
+            @Html.ActionLink("Düzenle", "Edit", new { id = Model.haber_id }) |
+            @Html.ActionLink("Geri Dön", "Index")
+            </td>
+        </tr>
+
+    </table>
+
+
+
+</div>
+
+
+

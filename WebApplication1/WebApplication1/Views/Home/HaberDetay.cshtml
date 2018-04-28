@@ -1,0 +1,38 @@
+﻿
+@model WebApplication1.Models.Haber
+@{
+    ViewBag.Title = "HaberDetay";
+    Layout = "~/Views/Shared/icerikgoster.cshtml";
+}
+
+
+<div>
+
+
+    <table border="0"  style="margin:50px;">
+        <tr>
+            <td width="300" height="30" align="center">
+                <h3>
+                    @Html.DisplayFor(model => model.haber_baslik)
+                    </h3>
+             </td>
+        </tr>
+        <tr>
+
+            <td width="400" height="250" align="center">
+                <img width="400" height="250" src="~/Content/img/haber/@Model.haber_resim" />
+            </td>
+        </tr>
+        <tr>
+            <td width="600" height="30" style="padding-top:40px;">
+            @Html.DisplayFor(model => model.haber_aciklama)</td>
+        </tr>
+    
+  
+    </table>
+
+
+
+</div>
+
+

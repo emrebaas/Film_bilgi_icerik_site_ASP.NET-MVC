@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebApplication1.Models.Haber>
+
+@{
+    ViewBag.Title = "Haber";
+    Layout = "~/Views/Shared/icerikgoster.cshtml";
+}
+
+
+<table border="0">
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td rowspan="2" width="300" height="200">
+                <a href="/Home/HaberDetay/@item.haber_id"><img width="300" height="200" src="~/Content/img/haber/@item.haber_resim" /></a>
+            </td>
+            <td height="50" width="300" style="padding-left:30px;">
+                <h3 style="float:left;">@Html.DisplayFor(modelItem => item.haber_baslik)</h3>
+            </td>
+        </tr>
+
+        <tr>
+            <td width="450" style="padding-left:30px;">
+                @if (item.haber_aciklama.Length > 200)
+                {
+                    <p>@Html.Raw(item.haber_aciklama.Substring(0, 200)) ...</p>
+                }
+
+                else
+                {
+                    <p>@Html.Raw(item.haber_aciklama) [...]</p>
+                }
+            </td>
+
+
+        </tr>
+
+        <tr>
+            
+            <td colspan="2" align="right">
+                <a href="/Home/HaberDetay/@item.haber_id">Devamı İçin Tıklayınız</a>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" height="40">
+                <hr style="margin-bottom:25px;" />
+            </td>
+        </tr>
+            }
+
+</table>

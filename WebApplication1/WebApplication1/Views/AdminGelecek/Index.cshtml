@@ -1,0 +1,73 @@
+﻿@model IEnumerable<WebApplication1.Models.Gelecek>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<p>
+    @Html.ActionLink("Gelecek Film Ekle", "Create")
+</p>
+<table align="center" border="0">
+ 
+
+@foreach (var item in Model)
+{
+
+
+
+    <tr>
+        <td rowspan="3" width="155" height="200">
+
+            <img width="155" height="200" src="~/Content/img/gelecek/@item.gelecek_resim" />
+        </td>
+        <td width="300" height="30" style="padding-left:20px;">
+            Film Adı  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;@Html.DisplayFor(modelItem => item.gelecek_adi)
+        </td>
+    </tr>
+
+        <tr>
+            <td width="300" height="30" style="padding-left:20px;">
+                Yapım Tarihi :&nbsp;@Html.DisplayFor(modelItem => item.gelecek_tarih)
+            </td>
+        </tr>
+ 
+        <tr>
+
+            <td width="450" style="padding-left:20px;">
+
+                @if (item.gelecek_konu.Length > 200)
+                {
+                    <p>@Html.Raw(item.gelecek_konu.Substring(0, 200)) ...</p>
+                }
+
+                else
+                {
+                    <p>@Html.Raw(item.gelecek_konu) ...</p>
+                }
+
+            </td>
+
+        </tr>
+
+        <tr>
+            <td></td>
+
+            <td style="float:right;">
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.gelecek_id }) |
+                @Html.ActionLink("Detaylar", "Details", new { id = item.gelecek_id }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.gelecek_id })
+            </td>
+
+
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <hr style="margin-bottom:25px;" />
+            </td>
+        </tr>
+        
+}
+
+</table>

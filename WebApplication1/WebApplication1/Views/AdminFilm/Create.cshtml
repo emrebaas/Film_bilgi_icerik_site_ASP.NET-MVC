@@ -1,0 +1,123 @@
+﻿@model WebApplication1.Models.Film
+
+
+@{
+        ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+@using (Html.BeginForm("Create","AdminFilm",FormMethod.Post,new { enctype="multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+        <table>
+            <tr>
+                <td align="center" width="100">Kategori</td>
+                <td>
+                    <div class="col-md-10">
+                        @Html.DropDownList("film_kategori_id", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.film_kategori_id, "", new { @class = "text-danger" })
+                    </div>
+                </td>
+            </tr>
+
+
+
+            <tr>
+                <td align="center">Film Adı</td>
+                <td>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.film_adi, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.film_adi, "", new { @class = "text-danger" })
+                    </div>
+                </td>
+            </tr>
+            
+
+
+            <tr>
+                <td align="center">Resim</td>
+                <td>
+                    <div class="col-md-10">
+                        <input type="file" name="film_resim" id="film_resim" accept=".jpg,.png" class="form-control" />
+                        @Html.ValidationMessageFor(model => model.film_resim, "", new { @class = "text-danger" })
+                    </div>
+                </td>
+            </tr>
+
+
+
+            <tr>
+                <td align="center">Tarih</td>
+                <td>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.film_yil, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.film_yil, "", new { @class = "text-danger" })
+                    </div>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td align="center">Puan</td>
+                <td>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.film_puan, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.film_puan, "", new { @class = "text-danger" })
+                    </div>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td align="center">Konu</td>
+                <td>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.film_konu, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.film_konu, "", new { @class = "text-danger" })
+                    </div>
+                </td>
+            </tr>
+
+
+
+            <tr>
+                <td align="center">Fragman</td>
+                <td>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.film_fragman, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.film_fragman, "", new { @class = "text-danger" })
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" style="padding-left:235px; padding-top:50px;">
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Film Oluştur" class="btn btn-default" style="background-color:cadetblue" />
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Geri Dön", "Index")
+</div>

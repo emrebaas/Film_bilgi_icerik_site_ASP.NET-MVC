@@ -1,0 +1,58 @@
+﻿@model WebApplication1.Models.Gelecek
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h5>Bu filmi silmek mi istiyorsun?</h5>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <table border="0">
+            <tr>
+                <td rowspan="3" width="200" height="250">
+                    <img width="200" height="250" src="~/Content/img/gelecek/@Model.gelecek_resim" />
+                </td>
+                <td width="500" height="30" style="padding-left:20px; padding-top:30px;">
+                    Film Adı  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;@Html.DisplayFor(model => model.gelecek_adi)
+
+                </td>
+            </tr>
+
+            <tr>
+                <td width="500" height="30" style="padding-left:20px;">
+                    Yapım Tarihi :&nbsp;@Html.DisplayFor(model => model.gelecek_tarih)
+
+                </td>
+            </tr>
+            
+            <tr>
+
+                <td width="600" style="padding-left:20px;">@Html.DisplayFor(model => model.gelecek_konu)</td>
+
+            </tr>
+
+            <tr>
+                <td align="left" colspan="2" height="400">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/@Model.gelecek_fragman" frameborder="0" allowfullscreen></iframe>
+                </td>
+
+            </tr>
+
+
+        </table>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Geri Dön", "Index")
+        </div>
+    }
+</div>

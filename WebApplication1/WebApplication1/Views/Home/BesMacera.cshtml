@@ -1,0 +1,43 @@
+﻿@model IEnumerable<WebApplication1.Models.Film>
+
+<table class="table" height="200" width="200">
+
+    <tr>
+        @foreach (var item in Model)
+            {
+            <td>
+                <table border="1" width="193" style="border-color:blanchedalmond;">
+
+                    <tr>
+                        <td align="center" style="border:0px;">
+                            <h4> @Html.DisplayFor(modelItem => item.film_adi)</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="200" align="center" style="border:0px;">
+
+                            <a href="/Home/FilmDetay/@item.film_id">
+                                <img width="150" height="200" src="~/Content/img/film/@item.film_resim" />
+
+
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:55px; border:0px;">
+                            <h3 style="float:left;">Imdb 10/ @Html.DisplayFor(modelItem => item.film_puan)</h3>
+                        </td>
+
+                    </tr>
+
+                </table>
+
+
+            </td>
+
+        }
+
+    </tr>
+
+
+</table>

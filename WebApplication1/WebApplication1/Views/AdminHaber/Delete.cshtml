@@ -1,0 +1,48 @@
+﻿@model WebApplication1.Models.Haber
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h5>Bu haberi silmek mi istiyorsun?</h5>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <table border="0">
+            <tr>
+                <td rowspan="2" width="200" height="250">
+                    <img width="200" height="250" src="~/Content/img/haber/@Model.haber_resim" />
+                </td>
+                <td width="500" height="30" style="padding-left:20px; padding-top:30px;">
+                    Film Adı  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;@Html.DisplayFor(model => model.haber_baslik)
+
+                </td>
+            </tr>
+
+        
+
+            <tr>
+
+                <td width="600" style="padding-left:20px;">@Html.DisplayFor(model => model.haber_aciklama)</td>
+
+            </tr>
+
+       
+
+
+        </table>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Geri Dön", "Index")
+        </div>
+    }
+</div>

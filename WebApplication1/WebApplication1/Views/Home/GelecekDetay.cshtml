@@ -1,0 +1,53 @@
+﻿
+@model WebApplication1.Models.Gelecek
+
+@{
+    ViewBag.Title = "GelecekDetay";
+    Layout = "~/Views/Shared/icerikgoster.cshtml";
+}
+
+
+<div>
+
+
+    <table border="0">
+        <tr>
+            <td rowspan="3" width="200" height="250">
+                <img width="200" height="250" src="~/Content/img/gelecek/@Model.gelecek_resim" />
+            </td>
+            <td width="300" height="30" style="padding-left:20px;">
+                <h3 style="float:left;">Film Adı  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp; </h3> 
+                <h4>@Html.DisplayFor(model => model.gelecek_adi)</h4> 
+            </td>
+        </tr>
+
+        <tr>
+            <td width="300" height="30" style="padding-left:20px;">
+                <h3 style="float:left;">Yapım Tarihi :&nbsp;</h3>
+                <h4>@Html.DisplayFor(model => model.gelecek_tarih)</h4> 
+            </td>
+        </tr>
+   
+        <tr>
+
+            <td width="600" style="padding-left:20px;">
+                 @Html.DisplayFor(model => model.gelecek_konu)
+            </td>
+
+        </tr>
+
+        <tr>
+            <td align="center" colspan="2" height="400">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/@Model.gelecek_fragman" frameborder="0" allowfullscreen>
+
+                </iframe>
+
+            </td>
+        </tr>
+    </table>
+
+
+
+
+
+</div>

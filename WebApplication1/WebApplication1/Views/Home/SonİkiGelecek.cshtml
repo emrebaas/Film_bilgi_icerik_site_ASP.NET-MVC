@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebApplication1.Models.Gelecek>
+
+
+
+<table height="250" border="0">
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td rowspan="3">
+
+                <img style="float:left;" width="200" src="~/Content/img/gelecek/@item.gelecek_resim" />
+            </td>
+            <td>
+                <h4> @Html.DisplayFor(modelItem => item.gelecek_adi)</h4>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.gelecek_tarih)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @if (item.gelecek_konu.Length > 200)
+                {
+                    <p>@Html.Raw(item.gelecek_konu.Substring(0, 200)) ...</p>
+                }
+
+                else
+                {
+                    <p>@Html.Raw(item.gelecek_konu) ...</p>
+                }
+            </td>
+
+
+        </tr>
+
+        <tr>
+            <td></td>
+            <td align="right"><a style="color:azure;font:bold;" href="/Home/GelecekDetay/@item.gelecek_id">Devamı İçin Tıklayınız</a></td>
+        </tr>
+
+        <tr>
+            <td height="40" colspan="2"></td>
+
+        </tr>
+
+
+    }
+
+</table>
+

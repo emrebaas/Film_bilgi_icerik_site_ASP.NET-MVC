@@ -1,0 +1,60 @@
+﻿@model IEnumerable<WebApplication1.Models.Gelecek>
+
+@{
+    ViewBag.Title = "Gelecek";
+    Layout = "~/Views/Shared/icerikgoster.cshtml";
+}
+
+
+<table border="0">
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td rowspan="3" width="170" height="250">
+                <a href="/Home/GelecekDetay/@item.gelecek_id"><img width="170" height="250" src="~/Content/img/gelecek/@item.gelecek_resim" /></a>
+            </td>
+            <td height="50" width="300" style="padding-left:30px;">
+                <h3 style="float:left;">Film Adı  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp; </h3> 
+                <h4>@Html.DisplayFor(modelItem => item.gelecek_adi)</h4>  
+            </td>
+        </tr>
+        <tr>
+            <td width="300" style="padding-left:30px;">
+                <h3 style="float:left;">Yapım Tarihi :&nbsp;</h3> 
+                <h4>@Html.DisplayFor(modelItem => item.gelecek_tarih)</h4> 
+            </td>
+
+
+        </tr>
+
+        <tr>
+            <td width="450" style="padding-left:30px;">
+                @if (item.gelecek_konu.Length > 200)
+                {
+                    <p>@Html.Raw(item.gelecek_konu.Substring(0,200)) ...</p>
+                }
+
+                else
+                {
+                <p>@Html.Raw(item.gelecek_konu) ...</p>
+                }
+            </td>
+
+
+        </tr>
+
+        <tr>
+            <td></td>
+            <td align="right"><a href="/Home/GelecekDetay/@item.gelecek_id">Devamı İçin Tıklayınız</a></td>
+        </tr>
+
+        <tr>
+            <td colspan="2" height="40">
+                <hr style="margin-bottom:25px;" />
+            </td>
+        </tr>
+    }
+
+</table>
